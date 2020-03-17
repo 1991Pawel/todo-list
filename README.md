@@ -1,3 +1,20 @@
+## todo-list
+Simple Todo App With LocalStorage 
+Create,Remove,Delete,Done 
+
+live:
+https://kind-murdock-8225fc.netlify.com/
+
+# I learned:
+- basic knowledge about react hooks.
+
+
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
