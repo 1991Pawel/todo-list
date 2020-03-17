@@ -1,0 +1,20 @@
+.addbutton {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 30px;
+    width: 30px;
+    background-color: transparent;
+    cursor: pointer;
+    margin: 1rem;
+
+    img {
+        display: block;
+        height: 100%;
+        width: 100%;
+    }
+
+    &:hover {
+        opacity: .5;
+    }
+}

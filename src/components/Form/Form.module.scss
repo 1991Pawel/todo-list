@@ -1,0 +1,42 @@
+.wrapper {
+    margin: 0 auto;
+}
+
+.form {
+    margin: 2rem 0;
+    position: relative;
+
+
+    &__label {
+        font-size: 1rem;
+
+    }
+
+    &__input {
+        margin-top: .5rem;
+        width: 100%;
+        border-bottom: 1px solid gray;
+        padding: .5rem;
+
+
+    }
+
+    &__btn {
+        margin-top: .5rem;
+        cursor: pointer;
+        font-weight: 700;
+        background-color: transparent;
+        padding: 8px 20px;
+        margin-left: auto;
+        display: block;
+        background-color: rgb(33, 137, 179);
+        color: #fff;
+
+        &:hover {
+            opacity: .8;
+        }
+
+    }
+
+
+}

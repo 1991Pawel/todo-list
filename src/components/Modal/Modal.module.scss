@@ -1,0 +1,27 @@
+.wrapper {
+    padding: 20px 50px;
+    top: 50%;
+    left: 50%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    min-height: 200px;
+    width: 320px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 10px 40px -10px rgba(#818181, .5);
+}
+
+.close {
+    cursor: pointer;
+    top: 1rem;
+    right: 1rem;
+    background-color: transparent;
+    position: absolute;
+    display: block;
+    height: 25px;
+    width: 25px;
+
+    &:hover {
+        background-color: red;
+        border-radius: 100px;
+    }
+}

@@ -1,0 +1,21 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0;
+}
+
+.counterbox {
+
+    &:nth-of-type(2) {
+        text-align: right;
+    }
+}
+
+.number {
+    font-weight: 700;
+}
+
+.desc {
+    color: #222222;
+    font-weight: 400;
+}
