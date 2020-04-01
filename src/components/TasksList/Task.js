@@ -11,7 +11,7 @@ const Task = ({ id, title, isDone }) => {
   const { doneTaskFn, editTaskFn, removeTaskFn } = useContext(AppContext);
   const taskInputRef = useRef();
 
-  function handleClickOutside() {
+  function handleClickOutside(e) {
     if (isEditing && editingTitle.trim()) {
       editTaskFn({
         title: editingTitle,
@@ -19,21 +19,25 @@ const Task = ({ id, title, isDone }) => {
         isDone
       });
     }
-    setIsEditing(false);
+
+    if (e.target.parentNode !== document.activeElement) {
+      setIsEditing(false);
+    }
+    console.log(e.target);
+    console.log(document.activeElement);
   }
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    if (isEditing) {
+      document.addEventListener("click", handleClickOutside);
+      return () => {
+        document.removeEventListener("click", handleClickOutside);
+      };
+    }
   });
 
   const editInputHandler = e => {
     setEditingTitle(e.target.value);
-    if (!e.target.value) {
-      console.log(e.target.parentNode.id);
-    }
   };
 
   const keyUpHandler = e => {
