@@ -13,29 +13,27 @@ class Form extends React.Component {
     });
   };
 
-  handleSubmit = (e,addTaskFn) => {
-    e.preventDefault()
+  handleSubmit = (e, addTaskFn) => {
+    e.preventDefault();
     const { inputValue } = this.state;
-    if(inputValue.trim()){
+    if (inputValue.trim()) {
       addTaskFn(inputValue);
 
       this.setState({
-      inputValue: "",
-    })}
-    
+        inputValue: ""
+      });
+    }
   };
-
 
   render() {
     const { inputValue } = this.state;
 
     return (
       <AppContext.Consumer>
-        {({addTaskFn}) => (
-        
+        {({ addTaskFn }) => (
           <div className={styles.wrapper}>
             <form
-              onSubmit={(e) => this.handleSubmit(e,addTaskFn)}
+              onSubmit={e => this.handleSubmit(e, addTaskFn)}
               autoComplete="off"
               className={styles.form}
             >
@@ -51,8 +49,9 @@ class Form extends React.Component {
                 required
                 onChange={this.inputValueHandler}
                 autoFocus
+                maxLength="100"
               />
-              <button type="submit" className={styles.form__btn} >
+              <button type="submit" className={styles.form__btn}>
                 Add Task
               </button>
             </form>

@@ -11,15 +11,15 @@ const Task = ({ id, title, isDone }) => {
   const { doneTaskFn, editTaskFn, removeTaskFn } = useContext(AppContext);
   const taskInputRef = useRef();
 
-  function handleClickOutside(event) {
-    if (taskInputRef.current && !taskInputRef.current.contains(event.target)) {
-      setIsEditing(false);
+  function handleClickOutside() {
+    if (isEditing && editingTitle.trim()) {
       editTaskFn({
         title: editingTitle,
         id,
         isDone
       });
     }
+    setIsEditing(false);
   }
 
   useEffect(() => {
@@ -29,10 +29,15 @@ const Task = ({ id, title, isDone }) => {
     };
   });
 
-  const editInputHandler = e => setEditingTitle(e.target.value);
+  const editInputHandler = e => {
+    setEditingTitle(e.target.value);
+    if (!e.target.value) {
+      console.log(e.target.parentNode.id);
+    }
+  };
 
   const keyUpHandler = e => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && editingTitle.trim()) {
       editTaskFn({
         title: editingTitle,
         id,
@@ -40,7 +45,6 @@ const Task = ({ id, title, isDone }) => {
       });
       setIsEditing(false);
     }
-    console.log(editingTitle);
   };
 
   return (
@@ -58,6 +62,8 @@ const Task = ({ id, title, isDone }) => {
           value={editingTitle}
           className={styles.edit}
           autoFocus
+          required
+          maxLength="100"
         />
       ) : (
         <span className={styles.title}>{title}</span>
